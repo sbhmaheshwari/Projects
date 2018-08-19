@@ -140,8 +140,6 @@ grid.arrange(g1, g2, g3, g4, top = "Emissions vs Day")
 
 ![](Visualization_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
-![](Emissions_vs_Day.png)
-
 In the plots above, because of large outliers, the box is depicted just as a line. Thus, next we plot the box plots by setting y limits.
 
 ``` r
@@ -164,7 +162,7 @@ g4 = ggplot(data = HVData_1, aes(Date, n2o)) + geom_boxplot(aes(group = Date), n
 grid.arrange(g1, g2, g3, g4, top = "Emission vs Day")
 ```
 
-![](Visualization_files/figure-markdown_github/unnamed-chunk-7-1.png) ![](Emission_vs_Day_2.png)
+![](Visualization_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 The box plots above show that the distribution for each emission is almost constant over days for these gases. Though, for nh3, the mean level decreases on Nov 13. Next, as the distribution of the 4 gases is almost same over days, we pick co2 and Nov 11 for further analysis. Let's plot a box plot of co2 vs Mode before and after removing the outliers.
 
@@ -178,7 +176,7 @@ boxplot.stats(Nov_11_data$co2)$stats[5] * 1.2
 grid.arrange(g4, g5, top = c("co2 vs Mode"))
 ```
 
-![](Visualization_files/figure-markdown_github/unnamed-chunk-8-1.png) ![](co2_vs_mode.png)
+![](Visualization_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 Thus, one can see apparently that the vessels in Cruising mode creates most pollution and Hoteling the least. As Cruising vessels have higher speeds and load factor and Hoteling the least, this plot suggests that pollution in directly proportional to the speed and load factor of the vehicles. Next we would like to see the impact of engine type on emission.
 
@@ -191,7 +189,7 @@ boxplot.stats(Nov_11_data$co2)$stats[5] * 1.2
 grid.arrange(g6, g7, top = "Emission vs Engine type")
 ```
 
-![](Visualization_files/figure-markdown_github/unnamed-chunk-9-1.png) ![](emission_vs_engine_type.png)
+![](Visualization_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 Main engines are used to turn the ship's propeller and move the ship through the water, whereas, the AUX (auxiliary) engines smaller engines that drive electrical generators to provide power for the ship's electrical systems. The plots suggest that AUX engines create more co2 emissions as compared to Main. It's also seen that Boiler engines are not used on Nov 11, or the boiler engine co2 emissions are missing from the data. To look into it, lets check which engines are related to the missing co2 emission data.
 
