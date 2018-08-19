@@ -26,7 +26,7 @@ The app consists of 3 pages.
     2.  Checkbox group for LandFlag, Vessel Category, Mode and Engine
     3.  Single checkbox to cluster
 
-![](Page_1.png)
+![](Visualization_filesPage_1.png)
 
 1.  ***Page 2 - Top Emissions: *** To map top emissions.
     1.  Select Box for Date
@@ -34,13 +34,13 @@ The app consists of 3 pages.
     3.  Sliders for the number of top emissions to consider
     4.  Single checkbox to cluster
 
-![](Page_2.png)
+![](Visualization_filesPage_2.png)
 
 1.  ***Page 3 - Track Vessels:*** To track the vessels causing top emissions.
     1.  Select Box for Date and Emission
     2.  Sliders for the number of top emissions to consider
 
-![](Page_3.png)
+![](Visualization_filesPage_3.png)
 
 ### Methodology
 
