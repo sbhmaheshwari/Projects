@@ -3,7 +3,7 @@ Houston Ship Channel: Part 2 - Interactive Mapping
 Saurabh Maheshwari
 May 10, 2018
 
-*Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388114" target="_blank">Part 1: Data Analysis</a> *
+*Jump to - <a href="https://github.com/sbhmaheshwari/Projects/blob/master/Shiny%20Leaflet%20integration/EDA_part_1.md" target="_blank">Part 1: Data Analysis</a> *
 
 ### Objective
 
