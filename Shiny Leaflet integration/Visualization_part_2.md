@@ -1,57 +1,50 @@
----
-title: 'Houston Ship Channel: Part 2 - Interactive Mapping'
-author: "Saurabh Maheshwari"
-date: "May 10, 2018"
-output: github_document
----
+Houston Ship Channel: Part 2 - Interactive Mapping
+================
+Saurabh Maheshwari
+May 10, 2018
 
 *Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388114" target="_blank">Part 1: Data Analysis</a> *
 
 ### Objective
-The main  objective of the project is to create an interactive data query app to visualize the emissions caused by the vessels in the Houston ship channel based on the user specific inputs. The data contains emissions caused by around 900 vessels of 10 gases, recorded every 15 minutes for each vessel approximately for 5 consecutive days. Thus, the app basically summarizes the data by enhancing customized visualization. In this document, the data has been interactively mapped using the shiny app. In part 1, the data to be used for visualization was analyzed by looking at trends between various variables.
+
+The main objective of the project is to create an interactive data query app to visualize the emissions caused by the vessels in the Houston ship channel based on the user specific inputs. The data contains emissions caused by around 900 vessels of 10 gases, recorded every 15 minutes for each vessel approximately for 5 consecutive days. Thus, the app basically summarizes the data by enhancing customized visualization. In this document, the data has been interactively mapped using the shiny app. In part 1, the data to be used for visualization was analyzed by looking at trends between various variables.
 
 ### Major Libraries used
-**Shiny** - For interactivity  
-**Leaflet**, **Leaflet.extras** - For mapping  
+
+**Shiny** - For interactivity
+**Leaflet**, **Leaflet.extras** - For mapping
 **dplyr**, **plyr** - Handling/Manipulating data frames
 
 ### Outline of the app
-The app consists of 3 pages.  
 
-1. ***Page 1 - Channel Summary: *** Summarizes all the emission data as per user specific inputs. The following widgets are used for variables:
-    a. Select Box for Date, Vessel Type and Emission
-    b. Checkbox group for LandFlag, Vessel Category, Mode and Engine
-    c. Single checkbox to cluster
-    
+The app consists of 3 pages.
+
+1.  ***Page 1 - Channel Summary: *** Summarizes all the emission data as per user specific inputs. The following widgets are used for variables:
+    1.  Select Box for Date, Vessel Type and Emission
+    2.  Checkbox group for LandFlag, Vessel Category, Mode and Engine
+    3.  Single checkbox to cluster
+
 ![](Page_1.png)
 
-2. ***Page 2 - Top Emissions: *** To map top emissions.
-    a. Select Box for Date
-    b. Checkbox group for Emissions. Thus more than one emission can be selected at a time
-    c. Sliders for the number of top emissions to consider
-    d. Single checkbox to cluster
+1.  ***Page 2 - Top Emissions: *** To map top emissions.
+    1.  Select Box for Date
+    2.  Checkbox group for Emissions. Thus more than one emission can be selected at a time
+    3.  Sliders for the number of top emissions to consider
+    4.  Single checkbox to cluster
 
 ![](Page_2.png)
 
-3. ***Page 3 - Track Vessels:*** To track the vessels causing top emissions.
-    a. Select Box for Date and Emission
-    b. Sliders for the number of top emissions to consider
+1.  ***Page 3 - Track Vessels:*** To track the vessels causing top emissions.
+    1.  Select Box for Date and Emission
+    2.  Sliders for the number of top emissions to consider
 
 ![](Page_3.png)
 
 ### Methodology
-To create the interactive app, firstly, a new data set has been created by adding 2 new variables Date and DateTime. Then, the new data set was split w.r.t date to create a list object, where each element of the list is a data frame containing emission data on a particular day.
-```{r, include=FALSE}
-library(shiny)
-library(dplyr)
-library(leaflet)
-library(leaflet.extras)
-library(ggplot2)
-library(gridExtra)
-library(GGally)
-```
 
-```{r}
+To create the interactive app, firstly, a new data set has been created by adding 2 new variables Date and DateTime. Then, the new data set was split w.r.t date to create a list object, where each element of the list is a data frame containing emission data on a particular day.
+
+``` r
 load("HVData.RData")
 # Create new columns containing Date
 HVData_1 = HVData %>%
@@ -59,6 +52,11 @@ HVData_1 = HVData %>%
     DateTime = as.POSIXct(HVData$PositionTme, format = "%m/%d/%Y %H:%M:%S", tz = "GMT"),
     Date = as.factor(as.Date(DateTime))
   )
+```
+
+    ## Warning: package 'bindrcpp' was built under R version 3.4.2
+
+``` r
 # Create a list wrt Dates
 Datefac = levels(HVData_1$Date)
 emission_Date = split(HVData_1, HVData_1$Date)
@@ -67,8 +65,10 @@ emission_Date = lapply(emission_Date, function(x) {
   x %>% arrange(DateTime) %>% select(-Date)
 })
 ```
-Next, we create user interface object using Navbar Pages. This section specifies how does the app looks. The code for ui has been given below:  
-```{r}
+
+Next, we create user interface object using Navbar Pages. This section specifies how does the app looks. The code for ui has been given below:
+
+``` r
 ui = navbarPage(
   "Houston Channel Data", # Title of the app
 # Creating first page
@@ -214,8 +214,9 @@ ui = navbarPage(
 )
 ```
 
-Next, we create the server function. This section specifies what does the app show. The code for server is provided below:  
-```{r}
+Next, we create the server function. This section specifies what does the app show. The code for server is provided below:
+
+``` r
 server = function(input, output) {
   #Creating the outputs for main panel for first page
   Data_mod = reactive({
@@ -394,10 +395,7 @@ server = function(input, output) {
 }
 ```
 
-The last section is for calling the app, that integrates ui and server sections and run the apps. The function is as below:   
+The last section is for calling the app, that integrates ui and server sections and run the apps. The function is as below:
 *shinyApp(ui = ui, server = server)*
 
 *Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388114" target="_blank">Part 1: Data Analysis</a> *
-
-
-
