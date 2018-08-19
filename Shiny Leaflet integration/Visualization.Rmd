@@ -54,6 +54,9 @@ g3 = ggplot(data = HVData_1, aes(Date, pm25)) + geom_boxplot(aes(group = Date), 
 g4 = ggplot(data = HVData_1, aes(Date, n2o)) + geom_boxplot(aes(group = Date), na.rm = TRUE)
 grid.arrange(g1, g2, g3, g4, top = "Emissions vs Day")
 ```
+
+![](Emissions_vs_Day.png)
+
 In the plots above, because of large outliers, the box is depicted just as a line. Thus, next we plot the box plots by setting y limits.  
 ```{r}
 g1 = ggplot(data = HVData_1, aes(Date, co2)) + geom_boxplot(aes(group = Date), na.rm = TRUE) + coord_cartesian(ylim = c(
