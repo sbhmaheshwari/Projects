@@ -30,7 +30,7 @@ load("HVData.RData")
 print(paste("number of rows = ", nrow(HVData), ";", "number of features = ", ncol(HVData)))
 ```
 Looking at the summary statistics:  
-```{r}
+```{r, echo=TRUE}
 summary(HVData)
 ```
 Thus, out of all the variables, PositionTme, LandFlag, Mode and Engine are categorical. PositionTme describes the time, and would make more sense to get converted to as.POSIXct format for easy manipulation later on. We convert the format and add 2 new variables, Date and DateTime as follows to create a new data frame HVData_1.  
