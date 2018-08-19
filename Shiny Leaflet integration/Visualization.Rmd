@@ -1,0 +1,125 @@
+---
+title: "Houston Ship Channel: Part 1 - Data Analysis"
+author: "Saurabh Maheshwari"
+date: "May 9, 2018"
+output: html_document
+---
+*Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388130" target="_blank">Part 2: Interactive Mapping</a> *  
+
+### Objective  
+Create an interactive data query app to visualize the emissions caused by the vessels in the Houston ship channel based on the user specific inputs. The data contains emissions caused by around 900 vessels of 10 gases, recorded every 15 minutes for each vessel approximately for 5 consecutive days. Thus, the app basically summarizes the data by enhancing customized visualization. In this document, the data to be used for visualization has been analyzed by looking at trends between various variables. Later, in Part 2, the data has been mapped using the interactive shiny app.
+
+### Major libraries used  
+**ggplot2**, **gridExtra**, **GGally** - Plotting  
+**dplyr**, **plyr** - Handling/Manipulating data frames  
+
+### Methodology
+First we start by analyzing the data, to know about the variables before going for visualization.   
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+library(shiny)
+library(dplyr)
+library(leaflet)
+library(leaflet.extras)
+library(ggplot2)
+library(gridExtra)
+library(GGally)
+```
+
+```{r}
+load("HVData.RData")
+print(paste("number of rows = ", nrow(HVData), ";", "number of features = ", ncol(HVData)))
+```
+Looking at the summary statistics:  
+```{r}
+summary(HVData)
+```
+Thus, out of all the variables, PositionTme, LandFlag, Mode and Engine are categorical. PositionTme describes the time, and would make more sense to get converted to as.POSIXct format for easy manipulation later on. We convert the format and add 2 new variables, Date and DateTime as follows to create a new data frame HVData_1.  
+```{r, message=FALSE, warning=FALSE}
+HVData_1 = HVData %>%
+  mutate(
+  DateTime = as.POSIXct(HVData$PositionTme, format = "%m/%d/%Y %H:%M:%S", tz = "GMT"),
+  Date = as.Date(DateTime)
+  )
+```
+As described in the summary some of the variables have NAs, lets filter out the number of NAs in each column.  
+```{r}
+sapply(HVData_1, function(x)sum(is.na(x)))
+```
+Thus, only Activity_Kwh, ch4, co2 and n2o have missing data.     
+Next, we try to look at the trends in the data to get better insights. First, we create emission box plots with respect to days to understand the distribution of emissions over time. For illustration purposes, I only plot the trends for 4 gases, namely, co2, nh3, pm25 and n2o.  
+```{r}
+g1 = ggplot(data = HVData_1, aes(Date, co2)) + geom_boxplot(aes(group = Date), na.rm = TRUE)
+g2 = ggplot(data = HVData_1, aes(Date, nh3)) + geom_boxplot(aes(group = Date), na.rm = TRUE)
+g3 = ggplot(data = HVData_1, aes(Date, pm25)) + geom_boxplot(aes(group = Date), na.rm = TRUE)
+g4 = ggplot(data = HVData_1, aes(Date, n2o)) + geom_boxplot(aes(group = Date), na.rm = TRUE)
+grid.arrange(g1, g2, g3, g4, top = "Emissions vs Day")
+```
+In the plots above, because of large outliers, the box is depicted just as a line. Thus, next we plot the box plots by setting y limits.  
+```{r}
+g1 = ggplot(data = HVData_1, aes(Date, co2)) + geom_boxplot(aes(group = Date), na.rm = TRUE) + coord_cartesian(ylim = c(
+  boxplot.stats(HVData_1$co2)$stats[1],
+  boxplot.stats(HVData_1$co2)$stats[5] * 1.2
+  ))
+g2 = ggplot(data = HVData_1, aes(Date, nh3)) + geom_boxplot(aes(group = Date), na.rm = TRUE) + coord_cartesian(ylim = c(
+  boxplot.stats(HVData_1$nh3)$stats[1],
+  boxplot.stats(HVData_1$nh3)$stats[5] * 1.2
+  ))
+g3 = ggplot(data = HVData_1, aes(Date, pm25)) + geom_boxplot(aes(group = Date), na.rm = TRUE) + coord_cartesian(ylim = c(
+  boxplot.stats(HVData_1$pm25)$stats[1],
+  boxplot.stats(HVData_1$pm25)$stats[5] * 1.2
+  ))
+g4 = ggplot(data = HVData_1, aes(Date, n2o)) + geom_boxplot(aes(group = Date), na.rm = TRUE) + coord_cartesian(ylim = c(
+  boxplot.stats(HVData_1$n2o)$stats[1],
+  boxplot.stats(HVData_1$n2o)$stats[5] * 1.2
+  ))
+grid.arrange(g1, g2, g3, g4, top = "Emission vs Day")
+```
+The box plots above show that the distribution for each emission is almost constant over days for these gases. Though, for nh3, the mean level decreases on Nov 13. Next, as the distribution of the 4 gases is almost same over days, we pick co2 and Nov 11 for further analysis. Let's plot a box plot of co2 vs Mode before and after removing the outliers.  
+```{r}
+Nov_11_data = HVData_1 %>% filter(Date == "2013/11/11")
+g4 = ggplot(data = Nov_11_data, aes(Mode, co2)) + geom_boxplot(na.rm = TRUE) + ggtitle("without trimming outliers")
+g5 = ggplot(data = Nov_11_data, aes(Mode, co2)) + geom_boxplot(na.rm = TRUE) + coord_cartesian(ylim = c(
+boxplot.stats(Nov_11_data$co2)$stats[1],
+boxplot.stats(Nov_11_data$co2)$stats[5] * 1.2
+)) + ggtitle("trimming the outliers")
+grid.arrange(g4, g5, top = c("co2 vs Mode"))
+```
+Thus, one can see apparently that the vessels in Cruising mode creates most pollution and Hoteling the least. As Cruising vessels have higher speeds and load factor and Hoteling the least, this plot suggests that pollution in directly proportional to the speed and load factor of the vehicles. Next we would like to see the impact of engine type on emission.    
+```{r}
+g6 = ggplot(data = Nov_11_data, aes(Engine, co2)) + geom_boxplot(na.rm = TRUE) + ggtitle("without trimming outliers")
+g7 = ggplot(data = Nov_11_data, aes(Engine, co2)) + geom_boxplot(na.rm = TRUE) + coord_cartesian(ylim = c(
+boxplot.stats(Nov_11_data$co2)$stats[1],
+boxplot.stats(Nov_11_data$co2)$stats[5] * 1.2
+)) + ggtitle("trimming the outliers")
+grid.arrange(g6, g7, top = "Emission vs Engine type")
+
+```
+
+Main engines are used to turn the ship's propeller and move the ship through the water, whereas, the AUX (auxiliary) engines smaller engines that  drive  electrical generators to provide power for the ship's electrical systems. The plots suggest that AUX engines create more co2 emissions as compared to Main. It's also seen that Boiler engines are not used on Nov 11, or the boiler engine co2 emissions are missing from the data. To look into it, lets check which engines are related to the missing co2 emission data.  
+```{r}
+table(Nov_11_data$Engine, !is.na(Nov_11_data$co2))
+```
+Thus, it is clear that 1298 missing values for co2 emissions are all for boiler engines on Nov 11. Lastly we try to visualize the correlation between different gasses. For that we plot the pair wise plot for all the gases on Nov 11.  For this we first remove all the rows that have NA in any column.  
+```{r, message=FALSE, warning=FALSE}
+Nov_11_data = Nov_11_data[complete.cases(Nov_11_data), ]
+ggpairs(Nov_11_data[, 15:24]) + theme(
+axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank()
+)
+```
+Thus, from the plot above it can be inferred that so2 and voc are the gasses that are least correlated with other gases. Apart from these two gases, all other gases show good correlation among each other. Lastly, we have a look at the co2 emissions vs vessel type. For this a bar plot is created for each vessel type.  
+```{r}
+ggplot(data = Nov_11_data, aes(VesselType, co2)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90)) + ggtitle("co2 emission vs Vessel type")
+```
+The figure shows that the tug vessels have the highest emissions, passenger are second. Though, it would be more interesting to plot the emissions per vessel for each category.  
+```{r}
+vessel_count = Nov_11_data %>% group_by(VesselType) %>% count() %>% ungroup()
+emission_sum = Nov_11_data %>% group_by(VesselType) %>% summarise(sum(co2)) %>% ungroup()
+emission_per_vessel = emission_sum$`sum(co2)`/vessel_count$n
+ggplot(data = data.frame(vesselType = vessel_count$VesselType, val = emission_per_vessel), aes(vesselType, val)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90)) + ggtitle("Co2 emission per vessel vs Vessel type")
+```
+
+Thus, Co2 emission per vessel is highest for passenger and then for reefer. Not surprisingly, the results are quite different as compared to cumulative emissions.
+
+*Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388130" target="_blank">Part 2: Interactive Mapping</a> *
