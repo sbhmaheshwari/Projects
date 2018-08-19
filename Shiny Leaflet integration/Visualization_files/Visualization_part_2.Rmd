@@ -5,7 +5,7 @@ date: "May 10, 2018"
 output: github_document
 ---
 
-*Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388114" target="_blank">Part 1: Data Analysis</a> *
+*Jump to - <a href="https://github.com/sbhmaheshwari/Projects/blob/master/Shiny%20Leaflet%20integration/EDA_part_1.md" target="_blank">Part 1: Data Analysis</a> *
 
 ### Objective
 The main  objective of the project is to create an interactive data query app to visualize the emissions caused by the vessels in the Houston ship channel based on the user specific inputs. The data contains emissions caused by around 900 vessels of 10 gases, recorded every 15 minutes for each vessel approximately for 5 consecutive days. Thus, the app basically summarizes the data by enhancing customized visualization. In this document, the data has been interactively mapped using the shiny app. In part 1, the data to be used for visualization was analyzed by looking at trends between various variables.

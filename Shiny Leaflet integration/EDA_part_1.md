@@ -12,6 +12,7 @@ Create an interactive data query app to visualize the emissions caused by the ve
 ### Major libraries used
 
 **ggplot2**, **gridExtra**, **GGally** - Plotting
+
 **dplyr**, **plyr** - Handling/Manipulating data frames
 
 ### Methodology
@@ -214,13 +215,17 @@ axis.ticks.x = element_blank()
 )
 ```
 
-![](Visualization_files/figure-markdown_github/unnamed-chunk-11-1.png) Thus, from the plot above it can be inferred that so2 and voc are the gasses that are least correlated with other gases. Apart from these two gases, all other gases show good correlation among each other. Lastly, we have a look at the co2 emissions vs vessel type. For this a bar plot is created for each vessel type.
+![](Visualization_files/figure-markdown_github/unnamed-chunk-11-1.png) 
+
+Thus, from the plot above it can be inferred that so2 and voc are the gasses that are least correlated with other gases. Apart from these two gases, all other gases show good correlation among each other. Lastly, we have a look at the co2 emissions vs vessel type. For this a bar plot is created for each vessel type.
 
 ``` r
 ggplot(data = Nov_11_data, aes(VesselType, co2)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90)) + ggtitle("co2 emission vs Vessel type")
 ```
 
-![](Visualization_files/figure-markdown_github/unnamed-chunk-12-1.png) The figure shows that the tug vessels have the highest emissions, passenger are second. Though, it would be more interesting to plot the emissions per vessel for each category.
+![](Visualization_files/figure-markdown_github/unnamed-chunk-12-1.png) 
+
+The figure shows that the tug vessels have the highest emissions, passenger are second. Though, it would be more interesting to plot the emissions per vessel for each category.
 
 ``` r
 vessel_count = Nov_11_data %>% group_by(VesselType) %>% count() %>% ungroup()

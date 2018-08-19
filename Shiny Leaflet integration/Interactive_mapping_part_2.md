@@ -12,21 +12,23 @@ The main objective of the project is to create an interactive data query app to 
 ### Major Libraries used
 
 **Shiny** - For interactivity
+
 **Leaflet**, **Leaflet.extras** - For mapping
+
 **dplyr**, **plyr** - Handling/Manipulating data frames
 
 ### Outline of the app
 
 The app consists of 3 pages.
 
-1.  ***Page 1 - Channel Summary:*** Summarizes all the emission data as per user specific inputs. The following widgets are used for variables:
+1.  ***Page 1 - Channel Summary: *** Summarizes all the emission data as per user specific inputs. The following widgets are used for variables:
     1.  Select Box for Date, Vessel Type and Emission
     2.  Checkbox group for LandFlag, Vessel Category, Mode and Engine
     3.  Single checkbox to cluster
 
 ![](Page_1.png)
 
-1.  ***Page 2 - Top Emissions:*** To map top emissions.
+1.  ***Page 2 - Top Emissions: *** To map top emissions.
     1.  Select Box for Date
     2.  Checkbox group for Emissions. Thus more than one emission can be selected at a time
     3.  Sliders for the number of top emissions to consider
