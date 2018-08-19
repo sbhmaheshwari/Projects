@@ -3,4 +3,5 @@ particular dish belongs to. This project is inspired from a Kaggle competition a
 
 - Used models such as XGBoost, gradient boosting, random forest, SVM and logistic regression along with various text 
 mining pre-processing methods to develop a multi-class classification model for categorizing recipes to 20 cuisines 
-using a string of ingredients as predictors, achieving a score in top 12 percentile of the Kaggle competition.
+using a string of ingredients as predictors, achieving a score in top 12 percentile of the Kaggle competition with 
+an accuracy of 80.3%.
