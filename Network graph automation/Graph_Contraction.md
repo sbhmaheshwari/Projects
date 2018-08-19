@@ -28,7 +28,8 @@ Then extracting only the freeway information (links and nodes) from the resultin
 mapview(hw_lines) + mapview(hw_nodes, color = "black", cex = 1)
 ```
 
-![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-2-1.png) Looking closely, we see numerous nodes and links. To be exact, this graph consists of:
+![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-2-1.png) 
+Looking closely, we see numerous nodes and links. To be exact, this graph consists of:
 
 ``` r
 print(paste("number of nodes: ", length(unique(hw_nodes@data$id))))
@@ -49,7 +50,8 @@ The problem here is that most of the links contain more than two nodes, which wo
 mapview(hw_lines) + mapview(hp_req_sp, color = "black", cex = 1)
 ```
 
-![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-5-1.png) Now, the number of nodes have decreased substantially to:
+![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-5-1.png) 
+Now, the number of nodes have decreased substantially to:
 
 ``` r
 print(paste("number of nodes: ", length(unique(hp_req_sp@data$id))))
@@ -242,8 +244,14 @@ sensor_data
 q
 ```
 
-![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-16-1.png) **Re-mapping ramp and freeway-freeway sensors**
-Looking closely, one would figure out that the ramp sensors (OR/FR) are located on the freeways rather than ramps. Same for freeway-Freeway (FF) sensors. This was one of the tedious challenges I encountered in this project. But with a combination of a simple algorithm and manual work, the sensors were remapped. The details are omitted in this document. In the map below, all the remapped sensors are shown on their appropriate new links. ![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-17-1.png) **Creating the adjacency matrix**
+![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-16-1.png) 
+
+**Re-mapping ramp and freeway-freeway sensors**
+Looking closely, one would figure out that the ramp sensors (OR/FR) are located on the freeways rather than ramps. Same for freeway-Freeway (FF) sensors. This was one of the tedious challenges I encountered in this project. But with a combination of a simple algorithm and manual work, the sensors were remapped. The details are omitted in this document. In the map below, all the remapped sensors are shown on their appropriate new links. 
+
+![](Graph_Contraction_files/figure-markdown_github/unnamed-chunk-17-1.png) 
+
+**Creating the adjacency matrix**
 To create adjacency matrix, for each link, nodes having 1 or -1 were searched in the incidence matrix. The cell corresponding to these nodes in the adjacency matrix was assigned 1, else 0. For illustration, first 10 rows and 10 columns of adjacency matrix are shown below:
 
 ``` r
