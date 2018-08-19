@@ -2,7 +2,7 @@
 title: "Houston Ship Channel: Part 1 - Data Analysis"
 author: "Saurabh Maheshwari"
 date: "May 9, 2018"
-output: html_document
+output: github_document
 ---
 *Jump to - <a href="http://rpubs.com/Saurabhmaheshwari96/388130" target="_blank">Part 2: Interactive Mapping</a> *  
 
@@ -104,7 +104,7 @@ grid.arrange(g6, g7, top = "Emission vs Engine type")
 ![](emission_vs_engine_type.png)
 
 Main engines are used to turn the ship's propeller and move the ship through the water, whereas, the AUX (auxiliary) engines smaller engines that  drive  electrical generators to provide power for the ship's electrical systems. The plots suggest that AUX engines create more co2 emissions as compared to Main. It's also seen that Boiler engines are not used on Nov 11, or the boiler engine co2 emissions are missing from the data. To look into it, lets check which engines are related to the missing co2 emission data.  
-```{r}
+```{r, echo=TRUE}
 table(Nov_11_data$Engine, !is.na(Nov_11_data$co2))
 ```
 Thus, it is clear that 1298 missing values for co2 emissions are all for boiler engines on Nov 11. Lastly we try to visualize the correlation between different gasses. For that we plot the pair wise plot for all the gases on Nov 11.  For this we first remove all the rows that have NA in any column.  
