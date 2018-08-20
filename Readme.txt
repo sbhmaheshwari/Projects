@@ -2,9 +2,10 @@ I am Saurabh Maheshwari, pursuing masters at UC Davis in transportation engineer
 Institute of Technology Bombay, where my passion for data science evolved. Currently as a  graduate researcher, I am 
 working on non-parametric estimation of travel demand density distribution based on observed flow in the network. Apart 
 from this, I spend a lot of time doing online courses related to machine learning, deep learning and data analysis, along 
-with some cool self projects in the free time to develop hands on data science skills.  
+with some cool self projects in the free time to develop hands on data science skills. Here is the link to my LinkedIn 
+profile: https://www.linkedin.com/in/saurabh-maheshwari-240396/ 
 
-The repository contains the projects that I have been involved in, the descriptions of which are as follows:
+The repository contains my work at UC Davis and IIT Bombay, the descriptions of which are as follows:
 
 1) Computational Statistics - Course work containing codes as well as approaches to various statistical problems on topics 
 such as genetic algorithms, bootstrap, sampling, etc.
