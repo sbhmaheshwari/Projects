@@ -54,3 +54,6 @@ def create_test_data(prediction, dict_cat):
   test_ids = dict_cat['test']['item_id'].isin(trtv['item_id']) & dict_cat['test']['shop_id'].isin(trtv['shop_id'])
   prediction[~test_ids] = 0
   return(prediction)
+
+def error(pred, act):
+    return(np.sqrt(np.mean(np.square(np.subtract(act,pred)))))
