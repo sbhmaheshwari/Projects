@@ -14,7 +14,7 @@ The file for data preparation and feature processing is PFS_Modeling4.ipynb, whe
 1) Aggregate the data w.r.t [shop, item, date block num], [shop, date block num], [item, date block num] and [item category id, date block num]
 2) Create lag features for 1-6, 12 months for monthly aggregated quantity, sales, price for different grouped features
 3) Create mean encodings for categorical features - item, shop, month, year and item category id
-4) Create text features (5 each) using _truncated pca_ for item names and item category names
+4) Create text features (5 each) using _truncated svd_ for item names and item category names
 
 Validation Strategy:
 1) Use data for 9, 21 and 33 months for validation

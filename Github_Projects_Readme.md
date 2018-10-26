@@ -1,4 +1,5 @@
-I am Saurabh Maheshwari, pursuing masters at UC Davis in transportation engineering. I completed my undergrad at Indian 
+
+I am Saurabh Maheshwari, pursuing masters (MS) at UC Davis in transportation engineering. I completed my undergrad at Indian 
 Institute of Technology Bombay, where my passion for data science evolved. Currently as a  graduate researcher, I am 
 working on non-parametric estimation of travel demand density distribution based on observed flow in the network. Apart 
 from this, I spend a lot of time doing online courses related to machine learning, deep learning and data analysis, along 
@@ -30,4 +31,5 @@ such as locating highest emission points, tracking high emission ships, etc. ins
 6) SVM-FFA dynamic modulus prediction (publication) - Contains code file and article I published as a part of my 
 undergraduate thesis. Employed firefly algorithm for SVM hyperparameter search in MATLAB to regress asphalt stiffness 
 that effectively decreased the overfitting by 32% w.r.t previously developed ANN models with similar accuracy standards.    
-      
+
+7) Future Sales Prediction - Predicted monthly future sales using deep neural networks with categorical embedding, CatBoost, XGBoost, and Random Forest models, and stacked them to improve the overall accuracy by 15%. Used Google Colab GPUs for neural network training and Bayesian optimization for automating the process of hyperparameter tuning 
