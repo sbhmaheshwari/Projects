@@ -31,5 +31,5 @@ such as locating highest emission points, tracking high emission ships, etc. ins
 undergraduate thesis. Employed firefly algorithm for SVM hyperparameter search in MATLAB to regress asphalt stiffness 
 that effectively decreased the overfitting by 32% w.r.t previously developed ANN models with similar accuracy standards.
 
-8) _Short and Long term traffic speed prediction_ - •	Combined 1D CNNs with encoder-decoder network and bi-directional LSTMs for short and long term speed predictions using google colab GPUs for neural network training. Converted 187Gb data to SQLite databases using pandas data frame chunks and queried 5 min average flow and speed data to create lagged features.    
+8) _Short and Long term traffic speed prediction_ -  Combined _1D CNNs_ with _encoder-decoder network_ and _bi-directional LSTMs_ for short and long term speed predictions using google colab GPUs for neural network training. Converted _187Gb data to SQLite databases_ using pandas data frame chunks and queried 5 min average flow and speed data to create lagged features.    
 
