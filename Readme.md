@@ -29,5 +29,7 @@ such as locating highest emission points, tracking high emission ships, etc. ins
 
 7) _SVM-FFA dynamic modulus prediction (publication)_ - Contains code file and article I published as a part of my 
 undergraduate thesis. Employed firefly algorithm for SVM hyperparameter search in MATLAB to regress asphalt stiffness 
-that effectively decreased the overfitting by 32% w.r.t previously developed ANN models with similar accuracy standards.    
+that effectively decreased the overfitting by 32% w.r.t previously developed ANN models with similar accuracy standards.
+
+8) _Short and Long term traffic speed prediction_ - •	Combined 1D CNNs with encoder-decoder network and bi-directional LSTMs for short and long term speed predictions using google colab GPUs for neural network training. Converted 187Gb data to SQLite databases using pandas data frame chunks and queried 5 min average flow and speed data to create lagged features.    
 
