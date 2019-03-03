@@ -5,7 +5,8 @@ working on parametric/non-parametric estimation of travel demand probability den
 
 The repository contains my work at UC Davis and IIT Bombay, the descriptions of which are as follows: 
 
-1) __Machine Learning__ - Contains codes, reports and publications for my machine learning projects completed so far.  2) __Computational Statistics__ - Course work containing codes as well as approaches to various statistical problems on topics 
+1) __Machine Learning__ - Contains codes, reports and publications for my machine learning projects completed so far.  
+2) __Computational Statistics__ - Course work containing codes as well as approaches to various statistical problems on topics 
 such as genetic algorithms, bootstrap, sampling, etc.
  3) __landslide data analysis (_Heroku/Flask/Bokeh_)__ - Contains interactive bokeh graphics, rendered on heroku using flask. It
  is a fun part of my self learning endeavor 
