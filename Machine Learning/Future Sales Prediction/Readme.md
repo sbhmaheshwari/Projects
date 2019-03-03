@@ -5,12 +5,12 @@ https://www.kaggle.com/c/competitive-data-science-final-project/data
 Worked on Windows 10, i-5-3230M CPU @ 2.60GHz, 8 GB RAM, 2 cores. Used __Google Colabs__ for neural network training and __Bayesian optimiztion using hyperopt__ 
 
 In the project, I have used the following models and stacked them:
-1) _Neural network with categorical embeddings_ - Embedding_nn_pfs4.ipynb
-2) _CatBoost_ - pfs4_catboost_optimize.ipynb
-3) _XGBoost_ - XGBOOST_pfs4_tuning.ipynb
-4) _Random forest_ - pfs_rf_tuning4.ipynb
+1) [_Neural network with categorical embeddings_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/Embedding_nn_pfs4.ipynb) 
+2) [_CatBoost_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/pfs4_catboost_optimize.ipynb) 
+3) [_XGBoost_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/XGBOOST_pfs4_tuning.ipynb) 
+4) [_Random forest_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/pfs_rf_tuning4.ipynb) Based on the [_EDA_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/Predict_Future_Sales_EDA.ipynb), 
 
-The file for data preparation and feature processing is PFS_Modeling4.ipynb, where the following steps are taken:
+data preparation and feature processing is done in [PFS_Modeling4](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/PFS_Modeling4.ipynb), where the following steps are taken:
 1) Aggregate the data w.r.t [shop, item, date block num], [shop, date block num], [item, date block num] and [item category id, date block num]
 2) Create lag features for 1-6, 12 months for monthly aggregated quantity, sales, price for different grouped features
 3) Create mean encodings for categorical features - item, shop, month, year and item category id
