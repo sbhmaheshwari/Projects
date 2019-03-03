@@ -1,4 +1,4 @@
-For the code, please follow - [What's cooking](https://github.com/sbhmaheshwari/Misc/blob/master/What's%20cooking.ipynb)<br>
+For the code, please follow - [What's cooking](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/What%27s%20cooking.ipynb)<br>
 - The aim of the project is to develop a classification model that based on the recipes, predicts what cuisine a 
 particular dish belongs to. This project is inspired from a Kaggle competition and the data is taken from the same website.
 
