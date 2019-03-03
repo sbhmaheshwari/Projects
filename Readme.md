@@ -4,8 +4,8 @@ Institute of Technology Bombay, where my passion for data science evolved. Curre
 working on parametric/non-parametric estimation of travel demand probability density distribution based on observed flow in the network. Apart from this, I spend a lot of time doing online courses related to machine learning, deep learning and data analysis (_certifications can be found on LinkedIn_), along with some cool self projects in the free time to develop hands on data science skills. Here is the link to my LinkedIn profile: https://www.linkedin.com/in/saurabh-maheshwari-240396/ 
 
 Some of the skills I have developed are: <br>
-_Expertise_: _Predictive Modeling, Machine Learning Algorithms, Data Mining and Visualization_
-_Tools_: _Python, R, MATLAB, SQLite, Keras, TensorFlow, Google Colabs, scikit-learn, Shiny, Leaflet, folium, bokeh, ggplot2_
+__Expertise__: _Predictive Modeling, Machine Learning Algorithms, Data Mining and Visualization_ <br>
+__Tools__: _Python, R, MATLAB, SQLite, Keras, TensorFlow, Google Colabs, scikit-learn, Shiny, Leaflet, folium, bokeh, ggplot2_
 
 The repository contains my work at UC Davis and IIT Bombay, the descriptions of which are as follows: 
 
