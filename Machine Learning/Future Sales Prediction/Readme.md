@@ -8,8 +8,8 @@ In the project, I have used the following models and stacked them:
 1) [_Neural network with categorical embeddings_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/Embedding_nn_pfs4.ipynb) 
 2) [_CatBoost_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/pfs4_catboost_optimize.ipynb) 
 3) [_XGBoost_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/XGBOOST_pfs4_tuning.ipynb) 
-4) [_Random forest_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/pfs_rf_tuning4.ipynb)
-<br>Based on the [_EDA_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/Predict_Future_Sales_EDA.ipynb), 
+4) [_Random forest_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/pfs_rf_tuning4.ipynb)<br>
+Based on the [_EDA_](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/Predict_Future_Sales_EDA.ipynb), 
 
 data preparation and feature processing is done in [PFS_Modeling4](https://nbviewer.jupyter.org/github/sbhmaheshwari/Misc/blob/master/PFS_Modeling4.ipynb), where the following steps are taken:
 1) Aggregate the data w.r.t [shop, item, date block num], [shop, date block num], [item, date block num] and [item category id, date block num]
