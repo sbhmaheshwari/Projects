@@ -4,9 +4,7 @@ This folder consists of machine learning projects I have completed so far. The d
 application of various text mining approaches and classification algorithms such as XGBoost, random forests, SVM, logistic
 regression, etc. Got ranked in top 10 percentile of the Kaggle competition with an accuracy of 80.3% 
 
-2) __Future Sales Prediction__ - Predicted monthly future sales using deep neural networks with categorical embedding, CatBoost, XGBoost, and Random Forest models, and stacked them to improve the overall accuracy by 15%. Used Google Colab GPUs for neural network training and Bayesian optimization for automating the process of hyperparameter tuning 3) _
-
-_SVM-FFA dynamic modulus prediction (publication)__ - Contains code file and article I published as a part of my 
+2) __Future Sales Prediction__ - Predicted monthly future sales using deep neural networks with categorical embedding, CatBoost, XGBoost, and Random Forest models, and stacked them to improve the overall accuracy by 15%. Used Google Colab GPUs for neural network training and Bayesian optimization for automating the process of hyperparameter tuning 3) __SVM-FFA dynamic modulus prediction (publication)__ - Contains code file and article I published as a part of my 
 undergraduate thesis. Employed firefly algorithm for SVM hyperparameter search in MATLAB to regress asphalt stiffness 
 that effectively decreased the overfitting by 32% w.r.t previously developed ANN models with similar accuracy standards. 
 
