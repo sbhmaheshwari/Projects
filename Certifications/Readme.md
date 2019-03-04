@@ -1,4 +1,4 @@
-*Here are some of certificates I recieved for completing online courses* <br>
+*Here are some of certificates I received for completing online courses* <br>
 
 1.  **Deep Learning Specialization** <br>
     ![](pdf2png/Deep.ai_Coursera%209JT5DHMH5BEX/Deep.ai_Coursera%209JT5DHMH5BEX-1.png)
