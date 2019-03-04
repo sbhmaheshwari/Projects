@@ -23,4 +23,5 @@ saving hours of manual effort.
 
  5) __Shiny Leaflet integration__ - Integrated Shiny and Leaflet packages in R to create user specific online query for the 
 Houston ship channel data. App facilitates data exploration of 117K records of 10 different emissions by mapping features 
-such as locating highest emission points, tracking high emission ships, etc. instantaneously. 6) __Certificates__ - I earned on completing online courses on deep learning, machine learning, algorithms and data analysis
+such as locating highest emission points, tracking high emission ships, etc. instantaneously. 
+6) __Certificates__ - I earned on completing online courses on deep learning, machine learning, algorithms and data analysis
