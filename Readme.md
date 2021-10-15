@@ -1,7 +1,5 @@
 
-I am Saurabh Maheshwari, pursuing MS in Statistics and MS is transportation engineering at UC Davis. I completed my undergrad at Indian 
-Institute of Technology Bombay, where my passion for data science evolved. Currently as a  graduate researcher, I am 
-working on parametric/non-parametric estimation of travel demand probability density distribution based on observed flow in the network. Apart from this, I spend a lot of time doing online courses related to machine learning, deep learning and data analysis (_certifications can be found on LinkedIn_), along with some cool self projects in the free time to develop hands on data science skills. Here is the link to my LinkedIn profile: https://www.linkedin.com/in/saurabh-maheshwari-240396/ 
+I am Saurabh Maheshwari, working as a Lead Data Scientist at Ingredion. I hold an MS in Statistics and an MS is transportation engineering from UC Davis. I completed my undergrad at Indian Institute of Technology Bombay, where my passion for data science evolved. Currently as a Lead Data Scientist, I oversee data science initiatives in the digital transformation team at Ingredion. Some of the major projects I work on are demand forecasting, recipe recommendation and machine learning enabled digital experimentations. Outside my job, I spend a lot of time doing online courses related to machine learning, deep learning and data analysis (_certifications can be found on LinkedIn_), along with some cool self projects in the free time to develop hands on data science skills. Here is the link to my LinkedIn profile: https://www.linkedin.com/in/saurabh-maheshwari-240396/ 
 
 Some of the skills I have developed are: <br>
 __Interests__: _Predictive Modeling, Machine Learning Algorithms, Data Mining and Visualization_ <br>
